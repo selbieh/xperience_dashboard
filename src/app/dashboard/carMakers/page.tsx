@@ -33,17 +33,6 @@ function CarMakersPage() {
       dataIndex: "name_ar",
       key: "name_en",
     },
-    // {
-    //   title: "Status",
-    //   dataIndex: "active",
-    //   key: "active",
-    //   render: (active: boolean) =>
-    //     active ? (
-    //       <Badge status="success" text="Active" />
-    //     ) : (
-    //       <Badge status="error" text="InActive" />
-    //     ),
-    // },
 
     {
       title: "Edit",
