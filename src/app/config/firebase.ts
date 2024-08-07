@@ -10,6 +10,16 @@ const firebaseCloudMessaging = {
 
   init: async function () {
     if (!firebase.getApps().length) {
+      firebase.initializeApp({
+        apiKey: process.env.apikey,
+        authDomain: process.env.authDomain,
+        projectId: process.env.projectId,
+        storageBucket: process.env.storageBucket,
+        messagingSenderId: process.env.messagingSenderId,
+        appId: process.env.appIdd,
+        measurementId: process.env.measurementId,
+      });
+
       try {
         const messaging = getMessaging();
         const tokenInLocalForage = await this.tokenInlocalforage();
@@ -18,8 +28,7 @@ const firebaseCloudMessaging = {
         console.log(status);
         if (status && status === "granted") {
           const fcm_token = await getToken(messaging, {
-            vapidKey:
-              "BEH0OMvStZlMB91AoHer9AGH02amwbydsDMh-Dvs98_bGTu5_Dh8AjwyQR5fUboWdWe7nAAQHaMmXLr4DivpK4c",
+            vapidKey: process.env.vapidKey,
           });
           if (fcm_token) {
             PostReq("devices", {
@@ -57,8 +66,7 @@ const firebaseCloudMessaging = {
 
         if (status && status === "granted") {
           const fcm_token = await getToken(messaging, {
-            vapidKey:
-              "BEH0OMvStZlMB91AoHer9AGH02amwbydsDMh-Dvs98_bGTu5_Dh8AjwyQR5fUboWdWe7nAAQHaMmXLr4DivpK4c",
+            vapidKey: process.env.vapidKey,
           });
           if (fcm_token) {
             PostReq("devices", {
