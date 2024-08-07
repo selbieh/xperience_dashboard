@@ -10,16 +10,6 @@ const firebaseCloudMessaging = {
 
   init: async function () {
     if (!firebase.getApps().length) {
-      firebase.initializeApp({
-        apiKey: "AIzaSyAnj8clJ6oJfReQLYU7LlK7ZF4fxiubvhc",
-        authDomain: "experience-9062b.firebaseapp.com",
-        projectId: "experience-9062b",
-        storageBucket: "experience-9062b.appspot.com",
-        messagingSenderId: "514143788543",
-        appId: "1:514143788543:web:bfcba670f8ec1b19025bca",
-        measurementId: "G-TXY42BLJYY",
-      });
-
       try {
         const messaging = getMessaging();
         const tokenInLocalForage = await this.tokenInlocalforage();
